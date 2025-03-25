@@ -14,11 +14,11 @@
 typedef struct Print_Function
 {
 	char spec;
-	void (*print_func)(va_list arg);
+	int (*print_func)(va_list arg);
 } Spec_N_Func;
 
 int _putchar(char c);
 int _printf(const char *format, ...);
-void print_char(va_list arg);
+int print_char(va_list arg);
 
 #endif

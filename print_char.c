@@ -8,9 +8,13 @@
  * Return: always returns void
  */
 
-void print_char(va_list arg)
+int print_char(va_list arg)
 {
+	int length = 1;
 	char to_print;
+
 	to_print = va_arg(arg, int);
 	_putchar(to_print);
+
+	return (length);
 }
