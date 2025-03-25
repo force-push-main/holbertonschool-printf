@@ -62,7 +62,7 @@ for (j = 0; j < 5 && format[i - 1] != spec_n_func[j - 1].spec; j++)
 
 ```
 
-Here we set j = 0, run the loop until __either__ j < 0 (which is the length of the struct array) or until it's found a match between the specifier in format and the specifiers we've saved in the struct array (spec\_n\_func), __but__ only after it's run the relevant print function (which is why there's a bunch of i - 1 and j - 1 going on).
+Here we set j = 0, run the loop until __either__ j < 5 (which is the length of the struct array) or until it's found a match between the specifier in format and the specifiers we've saved in the struct array (spec\_n\_func.spec), __but__ only after it's run the relevant print function (which is why there's a bunch of i - 1 and j - 1 going on).
 
 Within the loop, we're checking whether the character after the '%' (aka, format[i + 1]) is equal to one of the specifiers we stored in the struct array:
 
@@ -82,6 +82,9 @@ length += spec_n_func[j].print_func(args);
 Immediately after that, we add 2 to i, so that when the first loop starts printing characters again, it skips the % and the specifier characters, and starts printing the characters from that point onwards.
 
 But, if it doesn't find a match, then we don't add 2 to i, so i is still pointing to the value of '%'. This means when we exit the loop, if we didn't find a match then we will print the % and the unknown specifier (e.g. if we're given %r, then it will still print %r).
+
+
+
 
 
 
