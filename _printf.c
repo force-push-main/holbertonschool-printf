@@ -31,7 +31,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			for (j = 0; j < 5 && format[i] != spec_n_func[j].spec; j++)
+			for (j = 0; j < 5 && format[i - 1] != spec_n_func[j - 1].spec; j++)
 			{
 				if (format[i + 1] == spec_n_func[j].spec)
 				{
