@@ -14,6 +14,10 @@ int print_char(va_list arg)
 	char to_print;
 
 	to_print = va_arg(arg, int);
+
+	if (to_print < 0 || to_print > 127)
+		return (0);
+
 	_putchar(to_print);
 
 	return (length);
