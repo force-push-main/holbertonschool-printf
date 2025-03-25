@@ -90,6 +90,7 @@ But, if it doesn't find a match, then we don't add 2 to i, so i is still pointin
 
 ## print\_char notes
 
+### va arg command
 ```
 c = va arg(arg, int)
 ```
@@ -99,4 +100,20 @@ Initialises c to equal the value of arg, then moves to the next value in the arg
 Importantly, by moving to the next value in the arg array here, all instances of arg in all functions are now also equal to that value.
 
 e.g. if arg = [1, 2, 3], running the va arg command here will return 1 and move arg to the next value, 2. If you run the va arg command again, either here or in the \_printf function (or wherever you want), it will return 2, and so on.
+
+### return length
+```
+int length = 1;
+
+...
+
+return (length);
+```
+
+__All helper functions should return an int equal to the number of characters that it has printed.__ 
+
+In the case of print\_char, it will either return 1 if it has printed a character, or 0 if there was some kind of error and it didn't print anything.
+
+
+
 
