@@ -1,5 +1,13 @@
 #include "main.h"
 
+/**
+ * print_char - entry point
+ *
+ * Description: prints char
+ * @arg: arg to be printed
+ * Return: always returns void
+ */
+
 void print_char(va_list arg)
 {
 	char to_print;
