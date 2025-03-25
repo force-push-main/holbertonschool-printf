@@ -7,8 +7,8 @@
 /**
  * struct Print_Function - Struct containing specifier and function
  *
- * @specifier: char passed to specify type of arg
- * @print_va: relevant function to print arg
+ * @spec: char passed to specify type of arg
+ * @print_func: relevant function to print arg
  */
 
 typedef struct Print_Function
