@@ -1,6 +1,24 @@
 #ifndef MAIN_H
 #define MAIN_H
-int _printf(const char *format, ...);
 
+#include <stdarg.h>
+#include <stdio.h>
+
+/**
+ * struct Print_Function - Struct containing specifier and function
+ *
+ * @specifier: char passed to specify type of arg
+ * @print_va: relevant function to print arg
+ */
+
+typedef struct Print_Function
+{
+	char spec;
+	void (*print_func)(va_list arg);
+} Spec_N_Func;
+
+int _putchar(char c);
+int _printf(const char *format, ...);
+void print_char(va_list arg);
 
 #endif
