@@ -51,7 +51,7 @@ The first loop goes through format (which is a string), first checking whether t
 However, if it does find a '%', then it enters the second loop.
 
 ```
-  for (j = 0; j < 5 && format[i] != spec_n_func[j].spec; j++)
+for (j = 0; j < 5 && format[i - 1] != spec_n_func[j - 1].spec; j++)
 	{
 		if (format[i + 1] == spec_n_func[j].spec)
 		{
@@ -62,7 +62,27 @@ However, if it does find a '%', then it enters the second loop.
 
 ```
 
-Here we set j = 0, run the loop until __either__ j < 0 (which is the length of the struct array) or
+Here we set j = 0, run the loop until __either__ j < 0 (which is the length of the struct array) or until it's found a match between the specifier in format and the specifiers we've saved in the struct array (spec\_n\_func), __but__ only after it's run the relevant print function (which is why there's a bunch of i - 1 and j - 1 going on).
+
+Within the loop, we're checking whether the character after the '%' (aka, format[i + 1]) is equal to one of the specifiers we stored in the struct array:
+
+```
+if (format[i + 1] == spec_n_func[j].spec)
+```
+
+If it is, then we do two things simultaneously:
+1. Run the relevant print function (e.g. print\_char)
+2. Add the return value of the print function (which is the number of characters that print function has printed) to our running count of characters printed (length)
+
+```
+length += spec_n_func[j].print_func(args);
+
+```
+
+Immediately after that, we add 2 to i, so that when the first loop starts printing characters again, it skips the % and the specifier characters, and starts printing the characters from that point onwards.
+
+But, if it doesn't find a match, then we don't add 2 to i, so i is still pointing to the value of '%'. This means when we exit the loop, if we didn't find a match then we will print the % and the unknown specifier (e.g. if we're given %r, then it will still print %r).
+
 
 
 ## print\_char notes
