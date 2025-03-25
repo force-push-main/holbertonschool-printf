@@ -17,6 +17,12 @@ typedef struct Print_Function
 	int (*print_func)(va_list arg);
 } Spec_N_Func;
 
+
+/**
+ * Add all function prototypes below this line
+ * ===========================================
+ */
+
 int _putchar(char c);
 int _printf(const char *format, ...);
 int print_char(va_list arg);
