@@ -1,16 +1,16 @@
 #include "main.h"
 
 /**
- * print_bin - Entry point
+ * print_hex - Entry point
  *
  * Description: calls recursive convert and print function
- * @arg: int to be converted and printed
+ * @arg: int to be converted to base sixteen and printed
  * Return: returns length of string
  */
 
-int print_bin(va_list arg)
+int print_unsign_hex(va_list arg)
 {
-	int base = 2;
+	int base = 16;
 	int num = va_arg(arg, int);
 
 	return (convert_base_print(num, base, 0));

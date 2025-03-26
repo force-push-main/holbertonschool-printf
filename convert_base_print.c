@@ -10,7 +10,7 @@
  * Return: returns num of characters printed
  */
 
-int convert_base_print(int num, int base, int len)
+int convert_base_print(unsigned int num, int base, int len)
 {
 	char *characters = "0123456789ABCDEF";
 

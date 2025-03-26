@@ -1,5 +1,4 @@
 #include "main.h"
-#include <unistd.h>
 
 /**
  * _printf - Entry point
@@ -13,10 +12,15 @@ int _printf(const char *format, ...)
 {
 	Spec_N_Func spec_n_func[] = {
 		{'c', print_char},
-		{'s', print_string},
-		{'%', print_percent},
-		{'d', print_neg_int},
-		{'i', print_int}
+		{'s', print_char},
+		{'%', print_char},
+		{'d', print_int},
+		{'i', print_int},
+		{'b', print_unsign_bin},
+		{'u', print_unsign_int},
+		{'o', print_unsign_oct},
+		{'x', print_unsign_hex},
+		{'X', print_unsign_hex}
 	};
 
 	int i, j, length;
@@ -31,7 +35,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			for (j = 0; j < 5 && format[i - 1] != spec_n_func[j - 1].spec; j++)
+			for (j = 0; j < 10 && format[i - 1] != spec_n_func[j - 1].spec; j++)
 			{
 				if (format[i + 1] == spec_n_func[j].spec)
 				{

@@ -8,10 +8,10 @@
  * Return: returns length of string
  */
 
-int print_oct(va_list arg)
+int print_unsign_oct(va_list arg)
 {
 	int base = 8;
-	int num = va_arg(arg, int);
+	unsigned int num = va_arg(arg, unsigned int);
 
 	return (convert_base_print(num, base, 0));
 }

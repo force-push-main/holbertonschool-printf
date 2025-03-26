@@ -16,9 +16,6 @@ int print_char(va_list arg)
 
 	c = va_arg(arg, int);
 
-	if (c < 0 || c > 127)
-		return (0);
-
 	_putchar(c);
 
 	return (length);
