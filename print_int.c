@@ -18,7 +18,7 @@ int print_int(va_list arg)
 	{
 		_putchar('-');
 		abs_num = -num;
-		return (convert_base_print(abs_num, base, 0));
+		return (convert_base_print(abs_num, base, 0) + 1);
 	}
 
 	return (convert_base_print(num, base, 0));
