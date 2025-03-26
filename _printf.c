@@ -19,7 +19,7 @@ int _printf(const char *format, ...)
 		{'b', print_unsign_bin},
 		{'u', print_unsign_int},
 		{'o', print_unsign_oct},
-		{'x', print_unsign_hex},
+		{'x', print_unsign_hex_lowercase},
 		{'X', print_unsign_hex}
 	};
 

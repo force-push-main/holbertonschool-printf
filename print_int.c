@@ -12,11 +12,13 @@ int print_int(va_list arg)
 {
 	int base = 10;
 	int num = va_arg(arg, int);
+	unsigned int abs_num;
 
 	if (num < 0)
 	{
 		_putchar('-');
-		num = -num;
+		abs_num = -num;
+		return (convert_base_print(abs_num, base, 0));
 	}
 
 	return (convert_base_print(num, base, 0));
