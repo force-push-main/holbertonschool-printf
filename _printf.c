@@ -20,7 +20,8 @@ int _printf(const char *format, ...)
 		{'u', print_unsign_int},
 		{'o', print_unsign_oct},
 		{'x', print_unsign_hex_lowercase},
-		{'X', print_unsign_hex}
+		{'X', print_unsign_hex},
+		{'p', print_ptr_address}
 	};
 
 	int i, j, length;
@@ -35,7 +36,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			for (j = 0; j < 10 && format[i - 1] != spec_n_func[j - 1].spec; j++)
+			for (j = 0; j < 11 && format[i - 1] != spec_n_func[j - 1].spec; j++)
 			{
 				if (format[i + 1] == spec_n_func[j].spec)
 				{

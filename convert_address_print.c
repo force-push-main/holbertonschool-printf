@@ -1,25 +1,24 @@
 #include "main.h"
 
 /**
- * convert_base_print_lowercase - Entry point
+ * convert_address_print - Entry point
  *
  * Description: prints num in requested base and returns printed length
  * @num: num to be converted
- * @base: base to be converted to
  * @len: running count of chars printed
  * Return: returns num of characters printed
  */
 
-int convert_base_print_lowercase(unsigned int num, int base, int len)
+int convert_address_print(uintptr_t num, int len)
 {
 	char *characters = "0123456789abcdef";
 
-	if (num / base != 0)
+	if (num / 16 != 0)
 	{
-		len = convert_base_print_lowercase(num / base, base, len);
-		_putchar(characters[num % base]);
+		len = convert_address_print(num / 16, len);
+		_putchar(characters[num % 16]);
 		return (len + 1);
 	}
-	_putchar(characters[num % base]);
+	_putchar(characters[num % 16]);
 	return (len + 1);
 }

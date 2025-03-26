@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_int - Entry point
+ * print_unsign_int - Entry point
  *
  * Description: calls recursive convert and print function
  * @arg: int to be converted to base ten and printed

@@ -110,7 +110,7 @@ int length = 1;
 return (length);
 ```
 
-__All helper functions should return an int equal to the number of characters that it has printed.__ 
+__All helper functions should return an int equal to the number of characters that it has printed.__
 
 In the case of print\_char, it will either return 1 if it has printed a character, or 0 if there was some kind of error and it didn't print anything.
 

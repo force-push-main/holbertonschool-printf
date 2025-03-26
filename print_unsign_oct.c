@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_oct - Entry point
+ * print_unsign_oct - Entry point
  *
  * Description: calls recursive convert and print function
  * @arg: int to be converted to base eight and printed

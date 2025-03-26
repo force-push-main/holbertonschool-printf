@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_hex - Entry point
+ * print_unsign_hex - Entry point
  *
  * Description: calls recursive convert and print function
  * @arg: int to be converted to base sixteen and printed
