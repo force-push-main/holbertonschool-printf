@@ -26,5 +26,9 @@ typedef struct Print_Function
 int _putchar(char c);
 int _printf(const char *format, ...);
 int print_char(va_list arg);
+int convert_base_print(int num, int base, int len);
+int print_bin(va_list arg);
+int print_oct(va_list arg);
+int print_hex(va_list arg);
 
 #endif
