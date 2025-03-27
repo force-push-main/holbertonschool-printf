@@ -7,7 +7,7 @@
  *
  * Return: Always 0
  */
-int main(void)
+int test-main(void)
 {
 	/*
     int len;
