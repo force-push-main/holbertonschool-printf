@@ -31,13 +31,13 @@ int test_main(void)
     printf("%c%cth %s%s a%cg%s: Y%sou %s no%ching%s Snow.%c", 'W', 'i', "some ", "more", 'r', "s", "", "know", 't', ", Jon", '\n');
 
 */
-    _printf("%%\n");
-    printf("%%\n");
-
-    _printf("%!\n");
-    printf("%!\n");
+    _printf("%!");
+    printf("%!");
 
    /* 
+    _printf("\n");
+    printf("\n");
+
     _printf("%K\n");
     printf("%K\n");
     _printf("%d + %d = %d\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));

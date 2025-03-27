@@ -60,7 +60,7 @@ int _printf(const char *format, ...)
 					found = 1;
 				}
 			}
-			if (!found)
+			if (!found && format[i + 1])
 			{
 				_putchar(format[i]);
 				length++;
