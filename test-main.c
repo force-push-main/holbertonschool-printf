@@ -7,7 +7,7 @@
  *
  * Return: Always 0
  */
-int test_main(void)
+int main(void)
 {
 /*
     unsigned int ui;
@@ -27,14 +27,19 @@ int test_main(void)
 
     _printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0);
     printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0);
-*/
     _printf("%c%cth %s%s a%cg%s: Y%sou %s no%ching%s Snow.%c", 'W', 'i', "some ", "more", 'r', "s", "", "know", 't', ", Jon", '\n');
     printf("%c%cth %s%s a%cg%s: Y%sou %s no%ching%s Snow.%c", 'W', 'i', "some ", "more", 'r', "s", "", "know", 't', ", Jon", '\n');
 
-   /* 
-    _printf("%%");
-    printf("\n%%\n");
+*/
+    _printf("%%\n");
+    printf("%%\n");
 
+    _printf("%!\n");
+    printf("%!\n");
+
+   /* 
+    _printf("%K\n");
+    printf("%K\n");
     _printf("%d + %d = %d\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
     printf("%d + %d = %d\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
     _printf("Percent:[%%]\n");
