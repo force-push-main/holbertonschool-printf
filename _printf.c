@@ -23,7 +23,7 @@ int _printf(const char *format, ...)
 		{'p', print_ptr_address}
 	};
 
-	int i, j, string_len, length;
+	int i, j, string_len, length, found;
 
 	va_list args;
 
@@ -32,34 +32,40 @@ int _printf(const char *format, ...)
 	length = 0;
 
 	for (i = 0; format[i]; i++)
-	{
 		string_len++;
-	}
 
 	for (i = 0; i < string_len; i++)
 	{
+		if (format[i] != '%')
+		{
+			_putchar(format[i]);
+			length++;
+		}
 		if (format[i] == '%')
 		{
-			for (j = 0; j < 10 && format[i - 1] != spec_n_func[j - 1].spec; j++)
+			found = 0;
+			for (j = 0; j < 10 && !found; j++)
 			{
 				if (format[i + 1] == spec_n_func[j].spec)
 				{
 					length += spec_n_func[j].print_func(args);
-					i = i + 2;
+					i++;
+					found = 1;
 				}
 				if (format[i + 1] == '%')
 				{
 					_putchar('%');
-					i = i + 2;
+					i++;
 					length++;
-					j = 10;
+					found = 1;
 				}
 			}
-		}
-		if (format[i])
-		{
-			_putchar(format[i]);
-			length++;
+			if (!found)
+			{
+				_putchar(format[i]);
+				_putchar(format[i + 1]);
+				i++;
+			}
 		}
 	}
 	return (length);

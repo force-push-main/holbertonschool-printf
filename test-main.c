@@ -7,33 +7,43 @@
  *
  * Return: Always 0
  */
-int test-main(void)
+int main(void)
 {
-	/*
-    int len;
-    int len2;
+/*
     unsigned int ui;
     void *addr;
 
+    int len;
+    int len2;
     len = _printf("Let's try to printf a simple sentence.\n");
     len2 = printf("Let's try to printf a simple sentence.\n");
-*/
-   _printf("%c", 'S');
-    printf("%c", 'S');
-/*
+
+
+   _printf("%c\n", 'S');
+    printf("%c\n", 'S');
 
     _printf("String:[%s]\n", "I am a string !");
     printf("String:[%s]\n", "I am a string !");
-    
-    len = _printf("Percent:[%%]\n");
-    len2 = printf("Percent:[%%]\n");
+
+    _printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0);
+    printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0);
+*/
+
+    _printf("%d + %d = %d\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
+    printf("%d + %d = %d\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
+   /* 
+    _printf("Percent:[%%]\n");
+    printf("Percent:[%%]\n");
+
+    _printf("Percent:[%K]\n");
+    printf("Percent:[%K]\n");
    
-    _printf("Unknown:[%r]\n");
-    printf("Unknown:[%r]\n");
-    
     _printf("Length:[%d, %i]\n", len, len);
     printf("Length:[%d, %i]\n", len2, len2);
     
+    _printf("Unknown:[%r]\n");
+    printf("Unknown:[%r]\n");
+
     _printf("Negative:[%d]\n", INT_MIN);
     printf("Negative:[%d]\n", INT_MIN);
     
@@ -50,6 +60,6 @@ int test-main(void)
     printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
     _printf("Address:[%p]\n", addr);
     printf("Address:[%p]\n", addr);
-  */
+   */
     return (0);
 }
