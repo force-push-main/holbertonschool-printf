@@ -7,7 +7,7 @@
  *
  * Return: Always 0
  */
-int main(void)
+int test_main(void)
 {
 /*
     unsigned int ui;
