@@ -12,8 +12,7 @@ int _printf(const char *format, ...)
 {
 	Spec_N_Func spec_n_func[] = {
 		{'c', print_char},
-		{'s', print_char},
-		{'%', print_char},
+		{'s', print_string},
 		{'d', print_int},
 		{'i', print_int},
 		{'b', print_unsign_bin},
@@ -36,12 +35,19 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			for (j = 0; j < 11 && format[i - 1] != spec_n_func[j - 1].spec; j++)
+			for (j = 0; j < 10 && format[i - 1] != spec_n_func[j - 1].spec; j++)
 			{
 				if (format[i + 1] == spec_n_func[j].spec)
 				{
 					length += spec_n_func[j].print_func(args);
 					i = i + 2;
+				}
+				if (format[i + 1] == '%')
+				{
+					_putchar('%');
+					i = i + 2;
+					length++;
+					j = 10;
 				}
 			}
 		}

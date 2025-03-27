@@ -33,5 +33,6 @@ int print_unsign_oct(va_list arg);
 int print_unsign_hex(va_list arg);
 int print_unsign_hex_lowercase(va_list arg);
 int print_ptr_address(va_list arg);
+int print_string(va_list arg);
 
 #endif
