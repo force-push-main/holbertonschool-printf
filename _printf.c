@@ -52,7 +52,7 @@ int _printf(const char *format, ...)
 					i++;
 					found = 1;
 				}
-				if (format[i + 1] == '%')
+				if (format[i + 1] == '%' && !found)
 				{
 					_putchar('%');
 					i++;
@@ -63,7 +63,6 @@ int _printf(const char *format, ...)
 			if (!found)
 			{
 				_putchar(format[i]);
-				_putchar(format[i + 1]);
 				i++;
 			}
 		}
