@@ -7,11 +7,7 @@
  *
  * Return: Always 0
  */
-<<<<<<< HEAD
 int test_main(void)
-=======
-int main(void)
->>>>>>> sam-branch
 {
 /*
     unsigned int ui;
