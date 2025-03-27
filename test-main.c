@@ -7,7 +7,7 @@
  *
  * Return: Always 0
  */
-int test_main(void)
+int main(void)
 {
 	/*
     int len;
@@ -18,7 +18,7 @@ int test_main(void)
     len = _printf("Let's try to printf a simple sentence.\n");
     len2 = printf("Let's try to printf a simple sentence.\n");
 */
-    _printf("%c", 'S');
+   _printf("%c", 'S');
     printf("%c", 'S');
 /*
 

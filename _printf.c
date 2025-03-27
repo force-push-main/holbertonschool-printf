@@ -23,7 +23,7 @@ int _printf(const char *format, ...)
 		{'p', print_ptr_address}
 	};
 
-	int i, j, length;
+	int i, j, string_len, length;
 
 	va_list args;
 
@@ -32,6 +32,11 @@ int _printf(const char *format, ...)
 	length = 0;
 
 	for (i = 0; format[i]; i++)
+	{
+		string_len++;
+	}
+
+	for (i = 0; i < string_len; i++)
 	{
 		if (format[i] == '%')
 		{
@@ -57,6 +62,5 @@ int _printf(const char *format, ...)
 			length++;
 		}
 	}
-
 	return (length);
 }
