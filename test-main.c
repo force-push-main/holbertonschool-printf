@@ -31,9 +31,10 @@ int test_main(void)
     printf("%c%cth %s%s a%cg%s: Y%sou %s no%ching%s Snow.%c", 'W', 'i', "some ", "more", 'r', "s", "", "know", 't', ", Jon", '\n');
 
 */
-    _printf("%!");
-    printf("%!");
-
+	int len1, len2;
+   len1 = _printf("%%");
+   len2 = printf("%%");
+   printf("\nlength _printf: %i, length printf: %i\n", len1, len2);
    /* 
     _printf("\n");
     printf("\n");
