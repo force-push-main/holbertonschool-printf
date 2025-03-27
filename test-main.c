@@ -9,6 +9,7 @@
  */
 int test_main(void)
 {
+	/*
     int len;
     int len2;
     unsigned int ui;
@@ -16,10 +17,10 @@ int test_main(void)
 
     len = _printf("Let's try to printf a simple sentence.\n");
     len2 = printf("Let's try to printf a simple sentence.\n");
-
-    _printf("Character:[%c]\n", 'H');
-    printf("Character:[%c]\n", 'H');
-
+*/
+    _printf("%c", 'S');
+    printf("%c", 'S');
+/*
 
     _printf("String:[%s]\n", "I am a string !");
     printf("String:[%s]\n", "I am a string !");
@@ -49,5 +50,6 @@ int test_main(void)
     printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
     _printf("Address:[%p]\n", addr);
     printf("Address:[%p]\n", addr);
+  */
     return (0);
 }

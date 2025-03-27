@@ -51,8 +51,11 @@ int _printf(const char *format, ...)
 				}
 			}
 		}
-		_putchar(format[i]);
-		length++;
+		if (format[i])
+		{
+			_putchar(format[i]);
+			length++;
+		}
 	}
 
 	return (length);
