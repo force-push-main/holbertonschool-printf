@@ -78,3 +78,8 @@ int _printf(const char *format, ...)
 }
 
 /*FUNCTION 2 move to here-> int found_percentage(int leng) - and then return leng for the length to be updated*/
+
+/*some error checks that might be useful*/
+/*error check if length is just large say over 200 char, this would mostlikely mean that we are running a loop over and over*/
+/*error check for no input? example _printf("");*/
+/*error for i being bigger than the string_len*/
