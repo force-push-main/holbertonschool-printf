@@ -18,7 +18,7 @@ Sam, Bevan and Andrew
 
 ## Description
 
-\_printf prints a series of characters to stdout based on the options provided to the 'format' string. More information about the 'format' argument can be found within the [format section](#format argument), but put simply, format can be considered the template for what will be printed to stdout. The user can modify the final output by including a limited range of options within the format string, which will replace the option characters with the value of certain arguments when printed to stdout. These options can be found within the [\_printf behaviour section](#_printf-behaviour-and-options).
+\_printf prints a series of characters to stdout based on the options provided to the 'format' string. More information about the 'format' argument can be found within the [format section](#format argument), but put simply, format can be considered the template for what will be printed to stdout. The user can modify the final output by including a limited range of options within the format string, which will replace the option characters with the value of certain arguments when printed to stdout. These options can be found within the [SPECIFIER HANDLING](#specifier-handling) section.
 
 
 ## Using \_printf locally
@@ -70,7 +70,7 @@ For more information about using GitHub submodules, you can refer to [git offici
 
 ## Format argument
 
-'Format' is the initial string that is passed as the first argument in \_printf. This will be the 'template' for the final output, and will be printed to stdout exactly as it is written excpet where a secondary 'option' is added. These options (or 'conversion specifiers') will be explained in greater detail later, but as an example \_printf("Jimmy has %i apples", 5) will print: Jimmy has 5 apples, to stdout when the function is run. It is a requirment that format is written within quotation marks and as the first argument, which will indicate to \_printf that this is the format string that it should print.
+'Format' is the initial string that is passed as the first argument in \_printf. This will be the 'template' for the final output, and will be printed to stdout exactly as it is written excpet where a secondary 'option' is added. These options (or 'conversion specifiers') are explained in greater detail in the [SPECIFIER HANDLING section](#specifier-handling), but as an example \_printf("Jimmy has %i apples", 5) will print: Jimmy has 5 apples, to stdout when the function is run. It is a requirement that format is written within quotation marks and as the first argument, which will indicate to \_printf that this is the format string that it should print.
 
 Format can be made up of only the options specified, however these must still be placed within quotation marks. By default, \_printf does not print a new line character at the end of the string, so users wanting a new line to proceed the string must include this character where desired.
 
@@ -81,19 +81,25 @@ If the format argument is left blank, it will print only the null terminating ch
 
 The options available to the user are limited, however it includes a number of core data types as well as several more estoeric data types. This includes chars, ints and strings, as well as binary and hex conversions.
 
+When adding the specifiers to the format string, it will pull the value from the following arguments passed to \_printf in sequential order, so it is important to match the order of arguments with the order that the user is expecting them to appear.
+
+When using a specifier, it should be immediately preceeded by a '%' sign, which will inform \_printf that the character that follows will likely be a value found in the additional arguments passed to it.
+
+In the case where a non-specifier character occurs immediately after a % sign, it will instead print the % and non-specifier character as is.
+
 
 
 # SPECIFIER HANDLING
 
 ## s
 
-The print_string function is used to handle the %s format specifier. When a %s is encountered in the format string, this function is called to process and print a string argument.
+The print\_string function is used to handle the %s format specifier. When a %s is encountered in the format string, this function is called to process and print a string argument.
 
 ### SPECIFIER BEHAVIOR
 
 ### Argument Retrieval
 
-- Uses va_arg(arg, char*) to extract a string pointer from the variable argument list
+- Uses va_arg(arg, char\*) to extract a string pointer from the variable argument list
 - Expects a null-terminated character array (string) as the argument.
 
 
@@ -107,7 +113,7 @@ The print_string function is used to handle the %s format specifier. When a %s i
 ### CHARACTER PRINTING
 
 - Iterates through each character of the string until the null terminator
-- Uses _putchar() to output each character individually
+- Uses \_putchar() to output each character individually
 - Simultaneously increments a character count
 
 
@@ -121,8 +127,8 @@ The print_string function is used to handle the %s format specifier. When a %s i
 
 ### EXAMPLE
 
-- _printf("Name: %s\n", "Alice");      // Prints "Name: Alice"
-- _printf("Empty: %s\n", NULL);        // Prints "Name: (null)"
+- \_printf("Name: %s\n", "Alice");      // Prints "Name: Alice"
+- \_printf("Empty: %s\n", NULL);        // Prints "Name: (null)"
 
 ### ERROR HANDLING
 
@@ -152,7 +158,7 @@ The print_char function is designed to handle the %c format specifier in a custo
 
 ### CHARACTER PRINTING
 
-- Uses _putchar() to output the single character
+- Uses \_putchar() to output the single character
 - Always prints exactly one character
 - Hardcoded length of 1 to track output
 
@@ -173,8 +179,8 @@ The print_char function is designed to handle the %c format specifier in a custo
 
 ### EXAMPLE
 
-- _printf("First letter: %c\n", 'A');     // Prints "First letter: A"
-- _printf("Number as char: %c\n", 65);    // Prints "Number as char: A"
+- \_printf("First letter: %c\n", 'A');     // Prints "First letter: A"
+- \_printf("Number as char: %c\n", 65);    // Prints "Number as char: A"
 
 ### IMPLEMENTATION NOTES
 
@@ -197,7 +203,7 @@ ___
 - The percent sign handler manages scenarios involving unexpected or literal percent signs within a format string. 
 - It provides robust handling of different % sign situations to ensure predictable output and error management.
 
-###HANDLING SCENARIOS
+### HANDLING SCENARIOS
 
 1. Literal Percent Sign (%%)
 
@@ -218,7 +224,7 @@ ___
 
 ### BEHAVIOR EXAMPLES
 
-- _printf("100%%");           // Prints "100%"
+- \_printf("100%%");           // Prints "100%"
 - printf("Invalid %x");      // Prints "Invalid %"
 - printf("Trailing %");      // Sets length to -1
 
@@ -228,8 +234,8 @@ ___
 
 
 
-### Return value
+### RETURN VALUE
 
-On success, \_printf() will return the total number of bytes (characters) printed to stdout, not including the null terminator that concludes the string.
+On success, _printf() will return the total number of bytes (characters) printed to stdout, not including the null terminator that concludes the string.
 
-In the case of an error, \_printf will instead return -1.
+In the case of an error, such as if the user passes a single % with no specifier, _printf will instead return -1.
