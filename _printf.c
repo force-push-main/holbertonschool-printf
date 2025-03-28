@@ -10,6 +10,7 @@
 
 int _printf(const char *format, ...)
 {
+/*FUNCTION 1*/
 	Spec_N_Func spec_n_func[] = {
 		{'c', print_char},
 		{'s', print_string},
@@ -21,8 +22,9 @@ int _printf(const char *format, ...)
 		{'x', print_unsign_hex_lowercase},
 		{'X', print_unsign_hex},
 		{'p', print_ptr_address}
-	};
-
+	}; /*could move this to a seperate function*/
+/*FUNCTION 1*/
+	
 	int i, j, string_len, length, found;
 
 	va_list args;
@@ -41,23 +43,25 @@ int _printf(const char *format, ...)
 			_putchar(format[i]);
 			length++;
 		}
-		if (format[i] == '%')
-		{
-			found = 0;
-			for (j = 0; j < 10 && !found; j++)
+		if (format[i] == '%') /*we can move this to a seperate function too, for when % is found run function*/
+		{ 
+/*FUNCTION 2 - length = found_percentage(length) - to update the length from this function running*/
+			
+			found = 0; /*found used to break the for loop for when spec is from our list*/
+			for (j = 0; j < 10 && !found; j++) 
 			{
-				if (format[i + 1] == spec_n_func[j].spec)
+				if (format[i + 1] == spec_n_func[j].spec) /*note:if the next char after % is = to spec*/
 				{
 					length += spec_n_func[j].print_func(args);
 					i++;
-					found = 1;
+					found = 1; /*i++ & found = 1 for both these ifs can be moved outside as one*/
 				}
 				if (format[i + 1] == '%' && !found)
 				{
 					_putchar('%');
 					i++;
 					length++;
-					found = 1;
+					found = 1; /*i++ & found = 1 for both these ifs can be moved outside as one*/
 				}
 			}
 			if (!found && format[i + 1])
@@ -67,7 +71,10 @@ int _printf(const char *format, ...)
 			}
 			if (!found && !format[i + 1])
 				length = -1;
+/*FUNCTION 2*/
 		}
 	}
 	return (length);
 }
+
+/*FUNCTION 2 move to here-> int found_percentage(int leng) - and then return leng for the length to be updated*/
